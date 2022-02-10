@@ -1,0 +1,23 @@
+{% load static %}
+{% load i18n %}
+
+<table class="table table-striped mb-5">
+  <thead>
+    <tr>
+      <th class="border-top-0" scope="col">Team</th>
+      <th class="border-top-0" scope="col">Win</th>
+      <th class="border-top-0" scope="col">Loss</th>
+      <th class="border-top-0" scope="col">Win ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for team in teams %}
+        <tr>
+          <td>{{team.name}}</td>
+          <td>{{team.win}}</td>
+          <td>{{team.loss}}</td>
+          <td>{% widthratio team.win team.win|add:team.loss 100 %}%</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>

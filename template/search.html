@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block body %}
+    <div class="row justify-content-center mb-5">
+        <div class="col pt-3">
+           <form class="form-inline my-2 my-lg-0 justify-content-center">
+              <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+           </form>
+           <div class="row">
+                <div class="col justify-content-center">
+                    <h3 class="alert alert-warning text-center mt-4">Win loss</h3>
+                    {% include 'partials/match_score.html' %}
+                </div>
+
+           </div>
+           <div class="row justify-content-center">
+                <div class="col">
+                    <h3 class="alert alert-warning text-center">All matches</h3>
+                    {% for m in all_matches %}
+                        {% include 'partials/match.html' %}
+                    {% endfor %}
+                </div>
+           </div>
+           <div class="row">
+                <div class="col">
+                    <h3 class="alert alert-warning text-center">Next matches</h3>
+                    {% for m in next_matches %}
+                        {% include 'partials/match.html' %}
+                    {% endfor %}
+                </div>
+           </div>
+        </div>
+
+    </div>
+{% endblock %}

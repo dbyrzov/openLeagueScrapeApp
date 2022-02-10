@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block body %}
+        <div class="row justify-content-center mb-5">
+            <div class="col">
+                {% for day in matches %}
+                    <div class="row justify-content-center">
+                        <div class="alert alert-warning p-2 m-2">
+                            {{day.0.matchDateTime|slice:"0:10"}}
+                        </div>
+                    </div>
+
+                    {% for m in day %}
+                        {% include 'partials/match.html' %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

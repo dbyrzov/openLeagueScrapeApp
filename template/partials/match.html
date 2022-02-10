@@ -1,0 +1,21 @@
+{% load static %}
+{% load i18n %}
+
+<div class="row justify-content-around">
+     <div class="col justify-content-center">
+        <div class="row p-1">
+            <div class=" col-sm-5 col-xs-1 d-flex justify-content-end">
+                <span class="pr-2 font-weight-bold d-none d-sm-block text-truncate">{{m.team1.teamName}}</span>
+                <img src="{{m.team1.teamIconUrl}}" width="35rem" height="35rem" title="{{m.team1.teamName}}">
+            </div>
+            <div class="col-2 text-center">
+                <div class="font-weight-bold">{{m.matchDateTime|slice:"0:10"}}</div>
+                <div style="font-size: 12px">{{m.matchDateTime|slice:"11:16"}}</div>
+            </div>
+            <div class=" col-sm-5 col-xs-1 d-flex">
+                <img src="{{m.team2.teamIconUrl}}" width="35rem" height="35rem" title="{{m.team2.teamName}}">
+                <span class="pl-2 font-weight-bold d-none d-sm-block text-truncate">{{m.team2.teamName}}</span>
+            </div>
+        </div>
+    </div>
+</div>

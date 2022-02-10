@@ -1,0 +1,40 @@
+{% load static %}
+{% load i18n %}
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    </head>
+    <body>
+        <div class="row" style="width: 100%">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h1 class="text-center mt-3 mb-5">Open league crawler app</h1>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                          {% url 'next' as url_next %}
+                          {% url 'all' as url_all %}
+                          {% url 'winloss' as url_winloss %}
+                          {% url 'search' as url_search %}
+                        <a class="nav-link {% if url_next == request.path %} active {% endif %}" id="home-tab" data-toggle="tab" href="{{url_next}}" role="tab" aria-controls="next" aria-selected="true">Next matches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_all %} active {% endif %}" id="profile-tab" data-toggle="tab" href="{{url_all}}" role="tab" aria-controls="all" aria-selected="false">All matches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_winloss %} active {% endif %}" id="contact-tab" data-toggle="tab" href="{{url_winloss}}" role="tab" aria-controls="winloss" aria-selected="false">Win/Loss</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_search %} active {% endif %}" id="search-tab" data-toggle="tab" href="{{url_search}}" role="tab" aria-controls="search" aria-selected="false">Search</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </body>
+</html>
